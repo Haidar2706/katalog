@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>РМ Групп — Каталог продукции</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f5f5f5;
+      color: #222;
+    }
+
+    header {
+      background: white;
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: #0d6efd;
+    }
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #0d6efd, #00b4d8);
+      color: white;
+      padding: 100px 50px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 54px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      opacity: 0.9;
+    }
+
+    .catalog {
+      max-width: 1300px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .catalog h2 {
+      font-size: 40px;
+      margin-bottom: 40px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    .card h3 {
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      color: #0d6efd;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .description {
+      color: #666;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #0d6efd;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 30px;
+      margin-top: 60px;
+    }
+
+    @media(max-width: 768px) {
+      header {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+      }
+
+      nav {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      nav a {
+        margin-left: 0;
+        font-size: 15px;
+      }
+
+      .hero {
+        padding: 70px 20px;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+        line-height: 1.2;
+      }
+
+      .hero p {
+        font-size: 17px;
+      }
+
+      .catalog {
+        margin: 40px auto;
+        padding: 0 15px;
+      }
+
+      .catalog h2 {
+        font-size: 30px;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .products {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .card {
+        border-radius: 18px;
+      }
+
+      .card img {
+        height: 220px;
+      }
+
+      .card-content {
+        padding: 18px;
+      }
+
+      .card h3 {
+        font-size: 22px;
+      }
+
+      .price {
+        font-size: 22px;
+      }
+
+      .description {
+        font-size: 15px;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+        padding: 14px;
+      }
+
+      footer {
+        padding: 25px 15px;
+        font-size: 14px;
+      }
+    }
+
+    @media(max-width: 480px) {
+      .logo {
+        font-size: 24px;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .catalog h2 {
+        font-size: 26px;
+      }
+
+      .card img {
+        height: 200px;
+      }
+
+      .card h3 {
+        font-size: 20px;
+      }
+
+      .price {
+        font-size: 20px;
+      }
+    }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+    
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Rm Gruop </div>
+
+    <nav>
+      <a href="#catalog">Каталог</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Каталог товаров</h1>
+    <p>Каталог продукции ОсОО «РМ Групп» с актуальными ценами и описанием</p>
+  </section>
+
+  <section class="catalog" id="catalog">
+    
+    <div class="category-buttons" style="display:flex; gap:15px; flex-wrap:wrap; margin-bottom:40px;">
+      <button class="btn filter-btn" onclick="filterProducts('all')">Все товары</button>
+      <button class="btn filter-btn" style="background:#198754;" onclick="filterProducts('razdelka')">Разделка</button>
+      <button class="btn filter-btn" style="background:#fd7e14;" onclick="filterProducts('polufabrikaty')">Полуфабрикаты</button>
+      <button class="btn filter-btn" style="background:#6f42c1;" onclick="filterProducts('tushka')">Тушка</button>
+    </div>
+
+    <h2 id="group-title">Все товары</h2>
+    <h2>Популярные товары</h2>
+
+    <div class="products">
+
+      <!-- Разделка -->
+
+      <div class="card" data-category="razdelka">
+        <img src="images/54467b11-b2f4-4146-b509-187e8a729cf9.png" alt="филе">
+        <div class="card-content">
+          <h3>Филе куриное свежее мороженное Qualiko</h3>
+          <div class="price">530 сом</div>
+          <div class="description">Производство страна Украина. 
+          Фирма Qualiko. 
+          Вес упоковки 2 кг .
+          Состав разделка курицы грудка.</div>
+          
+        </div>
+      </div>
+
+      <div class="card" data-category="razdelka">
+        <img src="images/3c9be607-121f-4ae6-8670-8989f8720ca7.png" alt="Голень">
+        <div class="card-content">
+          <h3>Голень 2,5 кг куриная свежее мороженное Qualiko</h3>
+          <div class="price">575 сом</div>
+          <div class="description">Охлажденная голень для жарки и запекания.</div>
+          
+        </div>
+      </div>
+
+      <div class="card" data-category="razdelka">
+        <img src="images/1f9cb789-adf1-4847-8038-ac552d6c70ba.png" alt="крылья">
+        <div class="card-content">
+          <h3>Крылышки свежее мороженные Qualiko</h3>
+          <div class="price">234 сом</div>
+          <div class="description">Свежие куриные крылышки для гриля.</div>
+          
+        </div>
+      </div>
+
+      <div class="card" data-category="razdelka">
+        <img src="images/3c9be607-121f-4ae6-8670-8989f8720ca7.png" alt="голень">
+        <div class="card-content">
+          <h3>Голень 2,5 кг куриная свежее мороженное Qualiko</h3>
+          <div class="price">575 сом</div>
+          <div class="description">Куриная голень охлажденная.</div>
+          
+        </div>
+      </div>
+
+      <!-- Полуфабрикаты -->
+
+      <div class="card" data-category="polufabrikaty">
+        <img src="images/d83e08f3-d886-4fa3-a574-7e47b4427729.png" alt="наггетсы">
+        <div class="card-content">
+          <h3>Наггетсы </h3>
+          <div class="price">290 сом</div>
+          <div class="description">Полуфабрикаты для быстрого приготовления</div>
+          
+        </div>
+      </div>
+      <div class="card" data-category="polufabrikaty">
+        <img src="images/WhatsApp Image 2026-05-12 at 15.44.04 (1).jpeg" alt="Chicken Goujon">
+        <div class="card-content">
+          <h3>Наггетсы Chicken Goujon</h3>
+          <div class="price">325 сом</div>
+          <div class="description">Полуфабрикаты для быстрого приготовления</div>
+          
+        </div>
+      </div>
+
+      <div class="card" data-category="polufabrikaty">
+        <img src="images/77fb660a-dd4f-4075-ad06-578416507a59.png" alt="котлеты">
+        <div class="card-content">
+          <h3>Котлеты куриные по киевски</h3>
+          <div class="price">550 сом</div>
+          <div class="description">Полуфабрикаты для быстрого приготовления.</div>
+          
+        </div>
+      </div>
+
+      <div class="card" data-category="polufabrikaty">
+        <img src="images/e5ae7088-27cc-4fe5-ab53-3bedf02df420.png" alt="стрипсы">
+        <div class="card-content">
+          <h3>Стрипсы</h3>
+          <div class="price">325 сом</div>
+          <div class="description">Куриные стрипсы в панировке.</div>
+          
+        </div>
+      </div>
+
+      <div class="card" data-category="polufabrikaty">
+        <img src="images/aae27aa9-d6d5-4341-b11c-db413f625fa5.png" alt="Котлеты гречаники">
+        <div class="card-content">
+          <h3>Котлеты гречаники </h3>
+          <div class="price">290 сом</div>
+          <div class="description">Котлеты из  курицы и  гречки </div>
+          <div class="description">штрих код.</div>
+          
+        </div>
+      </div>
+
+      <!-- Тушка -->
+
+      <div class="card" data-category="tushka">
+        <img src="images/972e5f44-04de-4799-9bfb-b0987180cfdd (1).png" alt="тушка">
+        <div class="card-content">
+          <h3>Тушка 0,9 кг куриная свежее мороженная Qualiko</h3>
+          <div class="price">225 сом</div>
+          <div class="description">Состав замороженной тушки цыпленка-бройлера Qualiko (0.9 кг): 100% мясо цыпленка-бройлера.</div>
+          
+        </div>
+      </div>
+
+      <div class="card" data-category="tushka">
+        <img src="images/28d570f5-9d4a-4fc3-9d3d-48fb26616abf.png" alt="тушка">
+        <div class="card-content">
+          <h3>Тушка 1,2 кг куриная свежее мороженная Qualiko</h3>
+          <div class="price">300 сом</div>
+          <div class="description">Состав замороженной тушки цыпленка-бройлера Qualiko (1.2 кг): 100% мясо цыпленка-бройлера.</div>
+          
+        </div>
+      </div>
+
+      <div class="card" data-category="tushka">
+        <img src="images/c2f69522-14e1-4138-9901-dd8cf32b2506.png" alt="тушка">
+        <div class="card-content">
+          <h3>Тушка 1,3 кг куриная свежее мороженная Qualiko</h3>
+          <div class="price">325 сом</div>
+          <div class="description">Состав замороженной тушки цыпленка-бройлера Qualiko (1.3 кг): 100% мясо цыпленка-бройлера.</div>
+          
+        </div>
+      </div>
+
+      
+    </div>
+  </section>
+
+  <footer id="contacts">
+    <h3>Контакты</h3>
+    <p>Кыргызская Республика, г. Бишкек, ул. Чайковского 5</p>
+    <p>+996 (778) 722255</p>
+  </footer>
+
+  <script>
+    function filterProducts(category) {
+      const cards = document.querySelectorAll('.card');
+      const title = document.getElementById('group-title');
+
+      const titles = {
+        all: 'Все товары',
+        razdelka: 'Разделка',
+        polufabrikaty: 'Полуфабрикаты',
+        tushka: 'Тушка'
+      };
+
+      title.innerText = titles[category];
+
+      cards.forEach(card => {
+        if(category === 'all') {
+          card.style.display = 'block';
+        } else {
+          if(card.dataset.category === category) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        }
+      });
+    }
+  </script>
+</body>
+</html>
